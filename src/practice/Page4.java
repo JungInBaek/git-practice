@@ -7,5 +7,6 @@ public class Page4 {
 		JFrame f = new JFrame();
 		f.setSize(500, 500);
 		f.setVisible(true);
+		// dd
 	}
 }
