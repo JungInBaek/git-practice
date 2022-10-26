@@ -32,6 +32,8 @@ public class Page1 {
 			}
 		});
 		
+		// 1
+		
 		f.setVisible(true);
 	}
 }
