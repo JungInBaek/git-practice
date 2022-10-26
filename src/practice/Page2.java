@@ -10,6 +10,14 @@ public class Page2 {
 	public void open() {
 		JFrame f = new JFrame();
 		f.setSize(500, 500);    
+		
+		JButton btn1 = new JButton("b1");
+		btn1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+			}
+		});
+		
 		f.setVisible(true);
 	}
 }
