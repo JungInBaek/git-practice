@@ -37,5 +37,10 @@ public class Page1 {
 		// c
 		
 		f.setVisible(true);
+		
+		//	11111
+		
+		//	ccccc
+		
 	}
 }
