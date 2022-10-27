@@ -36,6 +36,8 @@ public class Page1 {
 		
 		// ddddd
 		
+		// 27일 수정
+		
 		f.setVisible(true);
 		
 	}
