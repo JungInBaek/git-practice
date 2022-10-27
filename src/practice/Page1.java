@@ -34,7 +34,7 @@ public class Page1 {
 		
 		// 1
 		
-		// c
+		// d
 		
 		f.setVisible(true);
 	}
