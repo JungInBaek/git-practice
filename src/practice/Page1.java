@@ -32,9 +32,9 @@ public class Page1 {
 			}
 		});
 		
-		//		11111
+		//		111111111
   
-		//		ccccc
+		//		ccccccccc
 		
 		f.setVisible(true);
 		
