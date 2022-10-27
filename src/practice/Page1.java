@@ -32,11 +32,11 @@ public class Page1 {
 			}
 		});
 		
-		// 2가 아니가 3
+		// 11111
 		
 		// a가 아니고 b
 		
-		// 27일 수정켁
+		// 27일 4시 15분 수정
 		
 		f.setVisible(true);
 		
