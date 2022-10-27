@@ -32,11 +32,11 @@ public class Page1 {
 			}
 		});
 		
-		// 22222
+		// 11111
 		
-		// aaaaa
+		// 응애
 		
-		// 27일 수정
+		// 27일 4시 15분 수정
 		
 		f.setVisible(true);
 		
