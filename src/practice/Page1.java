@@ -24,7 +24,13 @@ public class Page1 {
 
 			}
 		});
-		
+    
+		JButton btn3 = new JButton("btn3");
+		btn3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+			}
+		});
 		
 		f.setVisible(true);
 	}

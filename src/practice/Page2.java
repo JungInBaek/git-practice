@@ -18,6 +18,13 @@ public class Page2 {
 			}
 		});
 		
+		JButton btn2 = new JButton("b2");
+		btn1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+			}
+		});
+		
 		f.setVisible(true);
 	}
 }
