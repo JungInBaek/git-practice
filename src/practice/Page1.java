@@ -33,5 +33,10 @@ public class Page1 {
 		});
 		
 		f.setVisible(true);
+		
+		//	11111
+		
+		//	ccccc
+		
 	}
 }
