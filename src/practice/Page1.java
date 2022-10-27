@@ -32,6 +32,10 @@ public class Page1 {
 			}
 		});
 		
+		// 1
+		
+		// c
+		
 		f.setVisible(true);
 	}
 }
