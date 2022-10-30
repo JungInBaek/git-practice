@@ -15,6 +15,9 @@ public class Page3 {
 		f.setVisible(true);
 		
 		// test KimHwiDong
+		
+		// 2022.10.31 AM 12:14 연습용 수정
+		
 	}
 		
 //	}
