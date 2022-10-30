@@ -2,6 +2,7 @@ package practice;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Color;
 
@@ -104,19 +105,24 @@ public class Page4 {
 		JButton b1 = new JButton("조회");
 		b1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String id = t1.getText();
-				String pw = t2.getText();
-				MemberVO vo = new MemberVO();
-				MemberDAO dao = new MemberDAO();
+				try {
+					String id = t1.getText();
+					String pw = t2.getText();
+					MemberVO vo = new MemberVO();
+					MemberDAO dao = new MemberDAO();
 
-				vo.setId(id);
-				vo.setPw(pw);
-				MemberVO member = dao.getMemberByIdPw(vo); // 저장용도
-				t1.setText(member.getId());
-				t2.setText(member.getPw());
-				t3.setText(member.getName());
-				t4.setText(member.getTel());
-				t5.setText(member.getRole().name());
+					vo.setId(id);
+					vo.setPw(pw);
+					MemberVO member = dao.getMemberByIdPw(vo); // 저장용도
+					t1.setText(member.getId());
+					t2.setText(member.getPw());
+					t3.setText(member.getName());
+					t4.setText(member.getTel());
+					t5.setText(member.getRole().name());
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(f, "아이디와 비밀번호가 일치하지 않습니다.", "로그인오류", 0);
+				}
 
 			}
 		});
