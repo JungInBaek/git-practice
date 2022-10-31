@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import constant.Role;
 import vo.MemberVO;
@@ -126,4 +127,44 @@ public class MemberDAO {
 		}
 
 	}//
+
+	// 고객정보 전체출력
+	public ArrayList<MemberVO> list() {
+		String sql = "select * from MEMBER";
+		ArrayList<MemberVO> list = new ArrayList<>();
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection conn = DriverManager.getConnection(dbUrl, dbId, dbPw);
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String id2 = rs.getString(1); // 컬럼의 순서 1번 id값 추출
+				String pw = rs.getString(2);
+				String name = rs.getString(3);
+				String tel = rs.getString(4);
+
+				MemberVO member = null;
+				member = new MemberVO();
+				member.setId(id2);
+				member.setPw(pw);
+				member.setName(name);
+				member.setTel(tel);
+				if (rs.getString("rol").equals(Role.STAFF.name())) {
+					member.setRole(Role.STAFF);
+				} else {
+					member.setRole(Role.CLIENT);
+				}
+
+				list.add(member);
+
+			}
+			pstmt.close();
+			conn.close();
+			rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 }
