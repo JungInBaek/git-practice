@@ -105,4 +105,35 @@ public class MemberDAO {
 		return member;
 	}
 	
+	public void revise(final String ID, final String PW, final String NAME, final String TEL) {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		System.out.println("1. 드라이버 설정 성공.@@@@");
+		
+		
+		final String url = "jdbc:oracle:thin:@localhost:1521:xe";				;
+		final String user = "cafe";
+		final String password = "1234";
+		final Connection con = DriverManager.getConnection(url, user, password); 
+		System.out.println("2. db연결 성공.@@@@@");
+		
+		final String sql = "UPDATE member SET PW = ?, NAME = ?, TEL = ? WHERE ID = ?";
+		final PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, PW); 
+		ps.setString(2, NAME); 
+		ps.setString(3, TEL); 
+		ps.setString(4, ID); 
+		
+		System.out.println("3. sql문 생성.@@@@@@");
+		
+		ps.executeUpdate(); 
+		ps.close();
+		con.close();
+		} catch (final Exception e) {
+			e.printStackTrace();
+		}		
+		
+		
+		
+	}//
 }

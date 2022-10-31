@@ -80,8 +80,14 @@ public class Page4 {
 
 		t3 = new JTextField();
 		t3.setBackground(new Color(255, 255, 255));
-		t3.setEditable(false);
+		t3.setEditable(true);
 		t3.setText("아이디와 비밀번호를 입력하세요.");
+		t3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				t3.setText("");
+			}
+		});
 		t3.setColumns(10);
 		t3.setBounds(162, 107, 207, 21);
 		f.getContentPane().add(t3);
@@ -89,7 +95,13 @@ public class Page4 {
 		t4 = new JTextField();
 		t4.setBackground(new Color(255, 255, 255));
 		t4.setText("아이디와 비밀번호를 입력하세요.");
-		t4.setEditable(false);
+		t4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				t4.setText("");
+			}
+		});
+		t4.setEditable(true);
 		t4.setColumns(10);
 		t4.setBounds(162, 140, 207, 21);
 		f.getContentPane().add(t4);
@@ -101,6 +113,30 @@ public class Page4 {
 		t5.setColumns(10);
 		t5.setBounds(162, 173, 207, 21);
 		f.getContentPane().add(t5);
+
+		JOptionPane.showMessageDialog(f, "ID와 PW를 입력하시고 조회를 누른 후 데이터를 수정해주세요");
+
+		JButton b2 = new JButton("수정");
+		b2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				String id1 = t1.getText();
+				String pw1 = t2.getText();
+				String name1 = t3.getText();
+				String tel1 = t4.getText();
+				MemberDAO dao1 = new MemberDAO();
+				dao1.revise(id1, pw1, name1, tel1);
+
+				t1.setText("");
+				t2.setText("");
+				t3.setText("");
+				t4.setText("");
+				t5.setText("");
+
+			}
+		});
+		b2.setBackground(Color.WHITE);
+		b2.setBounds(375, 118, 79, 56);
 
 		JButton b1 = new JButton("조회");
 		b1.addActionListener(new ActionListener() {
@@ -119,6 +155,9 @@ public class Page4 {
 					t3.setText(member.getName());
 					t4.setText(member.getTel());
 					t5.setText(member.getRole().name());
+
+					f.getContentPane().add(b2);
+
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					JOptionPane.showMessageDialog(f, "아이디와 비밀번호가 일치하지 않습니다.", "로그인오류", 0);
