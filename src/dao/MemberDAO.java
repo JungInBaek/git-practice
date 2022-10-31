@@ -105,18 +105,14 @@ public class MemberDAO {
 		return member;
 	}
 
-	public void revise(final String ID, final String PW, final String NAME, final String TEL) {
+	public void revise(String ID, String PW, String NAME, String TEL) {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			final String url = "jdbc:oracle:thin:@localhost:1521:xe";
-			;
-			final String user = "cafe";
-			final String password = "1234";
-			final Connection con = DriverManager.getConnection(url, user, password);
+			Connection con = DriverManager.getConnection(dbUrl, dbId, dbPw);
 
-			final String sql = "UPDATE member SET PW = ?, NAME = ?, TEL = ? WHERE ID = ?";
-			final PreparedStatement ps = con.prepareStatement(sql);
+			String sql = "UPDATE member SET PW = ?, NAME = ?, TEL = ? WHERE ID = ?";
+			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, PW);
 			ps.setString(2, NAME);
 			ps.setString(3, TEL);
@@ -125,7 +121,7 @@ public class MemberDAO {
 			ps.executeUpdate();
 			ps.close();
 			con.close();
-		} catch (final Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 

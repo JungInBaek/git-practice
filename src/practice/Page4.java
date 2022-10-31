@@ -76,7 +76,6 @@ public class Page4 {
 		});
 		t2.setBounds(162, 74, 207, 21);
 		f.getContentPane().add(t2);
-		f.setVisible(true);
 
 		t3 = new JTextField();
 		t3.setBackground(new Color(255, 255, 255));
@@ -112,16 +111,19 @@ public class Page4 {
 		t5.setEditable(false);
 		t5.setColumns(10);
 		t5.setBounds(162, 173, 207, 21);
+
 		f.getContentPane().add(t5);
 
-		JOptionPane.showMessageDialog(f, "ID와 PW를 입력하시고 조회를 누른 후 데이터를 수정해주세요");
-
+		JOptionPane.showMessageDialog(null, "ID와 PW를 입력하시면 조회를 누른 후 데이터를 수정할 수 있습니다.");
 		JButton b2 = new JButton("수정");
+		b2.setEnabled(false);
+		JButton b1 = new JButton("조회");
+		// 데이터 조회 이후 pw, name, tel 수정기능
 		b2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
 				String id1 = t1.getText();
-				String pw1 = t2.getText();
+				String pw1 = new String(t2.getPassword());
 				String name1 = t3.getText();
 				String tel1 = t4.getText();
 				MemberDAO dao1 = new MemberDAO();
@@ -138,25 +140,27 @@ public class Page4 {
 		b2.setBackground(Color.WHITE);
 		b2.setBounds(375, 118, 79, 56);
 
-		JButton b1 = new JButton("조회");
+		// id + pw가 일치하면 name, tel, role 가져오고 수정버튼 활성화
+		
 		b1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					String id = t1.getText();
-					String pw = t2.getText();
+					String pw = new String(t2.getPassword());
 					MemberVO vo = new MemberVO();
 					MemberDAO dao = new MemberDAO();
 
 					vo.setId(id);
 					vo.setPw(pw);
-					MemberVO member = dao.getMemberByIdPw(vo); // 저장용도
+					MemberVO member = dao.getMemberByIdPw(vo);
 					t1.setText(member.getId());
 					t2.setText(member.getPw());
 					t3.setText(member.getName());
 					t4.setText(member.getTel());
 					t5.setText(member.getRole().name());
-
-					f.getContentPane().add(b2);
+					// 조회에 성공하면 b2버튼 활성화
+					b2.setEnabled(true);
+					
 
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -168,6 +172,7 @@ public class Page4 {
 		b1.setBackground(new Color(255, 255, 255));
 		b1.setBounds(375, 40, 79, 56);
 		f.getContentPane().add(b1);
-
+		f.getContentPane().add(b2);
+		f.setVisible(true);
 	}
 }
