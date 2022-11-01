@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import constant.Role;
 import vo.MemberVO;
 
@@ -123,10 +125,10 @@ public class MemberDAO {
 			ps.close();
 			con.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "비밀번호, 이름, 전화번호를 입력해주세요.", "로그인오류", 3);
 		}
 
-	}//
+	}
 
 	// 고객정보 전체출력
 	public ArrayList<MemberVO> list() {
