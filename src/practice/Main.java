@@ -39,7 +39,7 @@ public class Main {
 		btn3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Page3 page = new Page3();
-//				page.open();
+				page.open();
 			}
 		});
 		btn3.setBounds(131, 230, 91, 23);
