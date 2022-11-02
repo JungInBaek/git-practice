@@ -34,7 +34,7 @@ public class ItemManageView {
 		f.getContentPane().setLayout(null);
 
 		// 상품리스트
-		panel.setBounds(95, 358, 600, 300);
+		panel.setBounds(95, 309, 600, 400);
 		f.getContentPane().add(panel);
 
 		String[] header = { "CODE", "PRICE", "NAME", "QUANTITY", "ETC" };
@@ -46,7 +46,7 @@ public class ItemManageView {
 		
 		table = new JTable(all, header);
 		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setPreferredSize(new Dimension(600, 290));
+		scrollPane.setPreferredSize(new Dimension(600, 390));
 		
 		for (int i = 0; i < all.length; i++) {
 			ItemVO bag = list.get(i);
@@ -70,65 +70,20 @@ public class ItemManageView {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ItemAdd page = new ItemAdd();
-				page.open();
+				page.open(table);
 
 			}
 		});
 		btnNewButton.setFont(new Font("굴림", Font.BOLD, 20));
 		btnNewButton.setBounds(129, 201, 129, 71);
 		f.getContentPane().add(btnNewButton);
-		
-		JButton btnNewButton_1_1 = new JButton("상품조회");
-		btnNewButton_1_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				list = dao.list();
-				Object[][] all = new Object[list.size()][5];
-				for (int i = 0; i < all.length; i++) {
-					ItemVO bag = list.get(i);
-					all[i][0] = bag.getCode();
-					all[i][1] = bag.getPrice();
-					all[i][2] = bag.getName();
-					all[i][3] = bag.getQuantity();
-					all[i][4] = bag.getEtc();
-					DefaultTableModel model = new DefaultTableModel(all, header);
-					table.setModel(model);
-				}
-			}
-		});
-		btnNewButton_1_1.setFont(new Font("굴림", Font.BOLD, 20));
-		btnNewButton_1_1.setBounds(265, 292, 246, 61);
-		f.getContentPane().add(btnNewButton_1_1);
 
-		/*
-		 * JButton btnNewButton_3 = new JButton("상품조회");
-		 * btnNewButton_3.addActionListener(new ActionListener() { public void
-		 * actionPerformed(ActionEvent e) { ItemDAO dao = new ItemDAO();
-		 * 
-		 * ArrayList<ItemVO> list = dao.list();
-		 * 
-		 * String[] header = { "CODE", "PRICE", "NAME", "QUANTITY", "ETC" };
-		 * 
-		 * Object[][] all = new Object[list.size()][5]; // 행, 열의 개수 for (int i = 0; i <
-		 * all.length; i++) { ItemVO bag = list.get(i); all[i][0] = bag.getCode();
-		 * all[i][1] = bag.getPrice(); all[i][2] = bag.getName(); all[i][3] =
-		 * bag.getQuantity(); all[i][4] = bag.getEtc(); }
-		 * 
-		 * table = new JTable(all, header); JScrollPane scrollPane = new
-		 * JScrollPane(table);
-		 * 
-		 * for (int i = 0; i < all.length; i++) { for (int j = 0; j < all[i].length;
-		 * j++) { System.out.print(all[i][j] + " "); } System.out.println(); } } });
-		 * 
-		 * btnNewButton_3.setFont(new Font("굴림", Font.BOLD, 20));
-		 * btnNewButton_3.setBounds(182, 310, 427, 71);
-		 * f.getContentPane().add(btnNewButton_3);
-		 * 
-		 */
+		
 		JButton btnNewButton_1 = new JButton("상품삭제");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ItemDelete page = new ItemDelete();
-				page.open();
+				page.open(table);
 			}
 		});
 		btnNewButton_1.setFont(new Font("굴림", Font.BOLD, 20));
@@ -153,7 +108,7 @@ public class ItemManageView {
 						JOptionPane.showMessageDialog(null, "입력하신 상품코드가 존재하지 않습니다.");
 					} else if (code.equals(item.getCode())) {
 						ItemUpdate page = new ItemUpdate();
-						page.open(item);
+						page.open(item, table);
 					}
 				}
 
