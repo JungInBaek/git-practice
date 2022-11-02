@@ -104,16 +104,15 @@ public class ItemUpdate {
 				ItemDAO dao = new ItemDAO();
 				ItemVO vo = new ItemVO();
 				
-				vo.setCode(code);
-				vo.setPrice(price);
-				vo.setName(name);
-				vo.setQuantity(quantity);
-				vo.setEtc(etc);
-				dao.itemUpdate(vo);
-				
 				if (price1.isEmpty() || name.isEmpty() || quantity1.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "* 표시된 필수란에 기입해주세요.");
 				}else {
+					vo.setCode(code);
+					vo.setPrice(price);
+					vo.setName(name);
+					vo.setQuantity(quantity);
+					vo.setEtc(etc);
+					dao.itemUpdate(vo);
 					JOptionPane.showMessageDialog(null, "수정되었습니다.");
 					f.dispose();
 				}
