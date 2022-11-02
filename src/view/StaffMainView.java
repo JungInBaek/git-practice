@@ -28,6 +28,13 @@ public class StaffMainView {
 		f.getContentPane().add(itemManageBtn);
 
 		JButton stepManageBtn = new JButton("스탭관리");
+		stepManageBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				StaffManage SM = new StaffManage();
+				SM.open();
+				
+			}
+		});
 		stepManageBtn.setFont(new Font("맑은 고딕", Font.BOLD, 18));
 		stepManageBtn.setBounds(445, 299, 154, 107);
 		f.getContentPane().add(stepManageBtn);
