@@ -21,7 +21,7 @@ public class ItemDAO {
 
 			Connection con = DriverManager.getConnection(dbUrl, dbId, dbPw);
 
-			String sql = "select * from item";
+			String sql = "select * from item ORDER BY code";
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ResultSet rs = ps.executeQuery();

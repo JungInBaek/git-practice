@@ -3,13 +3,16 @@ package view;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
 
 import dao.ItemDAO;
 import vo.ItemVO;
@@ -21,7 +24,7 @@ public class ItemUpdate {
 	private static JTextField t4;
 	private static JTextField t5;
 	
-	public void open(ItemVO item){
+	public void open(ItemVO item, JTable table){
 		JFrame f = new JFrame();
 		f.setSize(500, 500);
 		f.getContentPane().setLayout(null);
@@ -114,6 +117,20 @@ public class ItemUpdate {
 					vo.setEtc(etc);
 					dao.itemUpdate(vo);
 					JOptionPane.showMessageDialog(null, "수정되었습니다.");
+					
+					String[] header = { "CODE", "PRICE", "NAME", "QUANTITY", "ETC" };
+					ArrayList<ItemVO> list = dao.list();
+					Object[][] all = new Object[list.size()][5];
+					for (int i = 0; i < all.length; i++) {
+						ItemVO bag = list.get(i);
+						all[i][0] = bag.getCode();
+						all[i][1] = bag.getPrice();
+						all[i][2] = bag.getName();
+						all[i][3] = bag.getQuantity();
+						all[i][4] = bag.getEtc();
+						DefaultTableModel model = new DefaultTableModel(all, header);
+						table.setModel(model);
+					}
 					f.dispose();
 				}
 			}
