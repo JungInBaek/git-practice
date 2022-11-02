@@ -11,6 +11,9 @@ import javax.swing.JButton;
 
 public class StaffMainView {
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public void open() {
 		JFrame f = new JFrame();
 		f.setSize(800, 800);
@@ -23,6 +26,12 @@ public class StaffMainView {
 		f.getContentPane().add(lblNewLabel);
 
 		JButton itemManageBtn = new JButton("상품관리");
+		itemManageBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ItemManageView page = new ItemManageView();
+				page.open();
+			}
+		});
 		itemManageBtn.setFont(new Font("맑은 고딕", Font.BOLD, 18));
 		itemManageBtn.setBounds(243, 299, 154, 107);
 		f.getContentPane().add(itemManageBtn);

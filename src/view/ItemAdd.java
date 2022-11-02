@@ -63,7 +63,7 @@ public class ItemAdd {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					String code = t1.getText();
-					String price1 = t2.getText();
+					String price1 = t2.getText(); 
 					int price = Integer.parseInt(price1);
 					String name = t3.getText();
 					String quantity1 = t4.getText();
@@ -72,20 +72,26 @@ public class ItemAdd {
 
 					ItemDAO dao = new ItemDAO();
 					ItemVO vo = new ItemVO();
-
 					vo.setCode(code);
-					vo.setPrice(price);
-					vo.setName(name);
-					vo.setQuantity(quantity);
-					vo.setEtc(etc);
-					dao.itemAdd(vo);
+					ItemVO item = dao.getItemByCode(vo);
 
-					if (price < 0 || quantity < 0) {
+					if(code.equals(item.getCode())) {
+						JOptionPane.showMessageDialog(null, "상품코드가 존재합니다.");
+					} else if(code.contains(" ")) {
+						JOptionPane.showMessageDialog(null, "공백을 입력할 수 없습니다.");
+					} else if (price < 0 || quantity < 0) {
 						JOptionPane.showMessageDialog(null, "음수는 입력할 수 없습니다.");
 					} else if (code.isEmpty() || name.isEmpty()) {
 						JOptionPane.showMessageDialog(null, "* 표시된 필수란에 기입해주세요.");
 					} else {
+						vo.setCode(code);
+						vo.setPrice(price);
+						vo.setName(name);
+						vo.setQuantity(quantity);
+						vo.setEtc(etc);
+						dao.itemAdd(vo);
 						JOptionPane.showMessageDialog(null, "추가되었습니다.");
+						f.dispose();
 					}
 					
 				} catch (NumberFormatException ex) {
