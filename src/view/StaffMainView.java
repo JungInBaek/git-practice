@@ -39,7 +39,7 @@ public class StaffMainView {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				CustomerManager cm = new CustomerManager();
-				cm.open();
+				//cm.open();
 			}
 		});
 		clientManageBtn.setFont(new Font("맑은 고딕", Font.BOLD, 18));
