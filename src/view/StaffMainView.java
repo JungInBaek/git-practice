@@ -41,7 +41,7 @@ public class StaffMainView {
 			public void actionPerformed(ActionEvent arg0) {
 				StaffManage SM = new StaffManage();
 				SM.open();
-				
+
 			}
 		});
 		stepManageBtn.setFont(new Font("맑은 고딕", Font.BOLD, 18));
@@ -64,6 +64,15 @@ public class StaffMainView {
 		JButton itemSaleBtn = new JButton("상품판매");
 		itemSaleBtn.setFont(new Font("맑은 고딕", Font.BOLD, 18));
 		itemSaleBtn.setBounds(445, 454, 154, 107);
+		itemSaleBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				GoodsSell goods = new GoodsSell();
+				goods.open();
+
+			}
+		});
 		f.getContentPane().add(itemSaleBtn);
 		f.setVisible(true);
 	}

@@ -285,6 +285,8 @@ public class JoinView {
 					memberDAO.add(vo);
 					
 					f.dispose();
+					LoginView view = new LoginView();
+					view.main(null);
 				}
 			}
 		});
@@ -297,6 +299,8 @@ public class JoinView {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				f.dispose();
+				LoginView view = new LoginView();
+				view.main(null);
 			}
 		});
 		cancelBtn.setFont(new Font("맑은 고딕", Font.BOLD, 18));
