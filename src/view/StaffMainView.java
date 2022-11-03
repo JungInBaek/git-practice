@@ -39,8 +39,8 @@ public class StaffMainView {
 		JButton stepManageBtn = new JButton("스탭관리");
 		stepManageBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				StaffManage SM = new StaffManage();
-				SM.open();
+				StaffManage sm = new StaffManage();
+				sm.open();
 
 			}
 		});
