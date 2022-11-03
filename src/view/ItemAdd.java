@@ -87,7 +87,7 @@ public class ItemAdd {
 					} else {
 						JOptionPane.showMessageDialog(null, "추가되었습니다.");
 					}
-					
+
 				} catch (NumberFormatException ex) {
 					JOptionPane.showMessageDialog(null, "* 표시된 필수란에 기입해주세요.");
 				}

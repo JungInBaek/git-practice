@@ -24,7 +24,7 @@ import vo.MemberVO;
 public class CustomerManager {
 	private static JTable table;
 
-	public void open() {
+	public void open() { // 고객에 관한정보를 테이블로 관리
 
 		{
 			JFrame f = new JFrame();
@@ -62,21 +62,21 @@ public class CustomerManager {
 					Object pw = table.getModel().getValueAt(rowNo, 1);
 					Object name = table.getModel().getValueAt(rowNo, 2);
 					Object tel = table.getModel().getValueAt(rowNo, 3);
-					JOptionPane.showMessageDialog(table, id+" "+ pw +" "+ name+" "+tel);
-					
+					JOptionPane.showMessageDialog(table, id + " " + pw + " " + name + " " + tel);
+
 				}
 			});
 			JLabel l2 = new JLabel("고객정보");
 			l2.setFont(new Font("굴림", Font.BOLD, 20));
 			l2.setHorizontalAlignment(SwingConstants.CENTER);
 			f.getContentPane().add(l2, BorderLayout.NORTH);
-			
+
 			JButton b = new JButton("상세검색");
 			b.setHorizontalAlignment(SwingConstants.CENTER);
 			f.getContentPane().add(b, BorderLayout.SOUTH);
-			
+
 			b.addActionListener(new ActionListener() {
-				
+
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					DetailCustomer a = new DetailCustomer();

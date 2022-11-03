@@ -6,9 +6,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import vo.DetailVO;
+
 public class DetailDAO {
 
-	public void insert(DetailVO bag) {
+	public void insert(DetailVO bag) { //고객정보 DAO
 		try {
 			// 드라이버 설정
 			Class.forName("oracle.jdbc.driver.OracleDriver");

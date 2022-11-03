@@ -1,6 +1,6 @@
 package vo;
 
-public class DetailVO {
+public class DetailVO { // 고객 상세정보 가방만들기
 	private String memo;
 	private String id;
 
@@ -11,7 +11,7 @@ public class DetailVO {
 	public void setMemo(String memo) {
 		this.memo = memo;
 	}
-	
+
 	public String getId() {
 		return id;
 	}
