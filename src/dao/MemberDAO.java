@@ -21,7 +21,6 @@ public class MemberDAO {
 	// member 추가
 	public void add(MemberVO vo) {
 		String sql = "INSERT INTO member VALUES (?, ?, ?, ?, ?)";
-
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection conn = DriverManager.getConnection(dbUrl, dbId, dbPw);

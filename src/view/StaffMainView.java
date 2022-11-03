@@ -32,7 +32,7 @@ public class StaffMainView {
 		stepManageBtn.setBounds(445, 299, 154, 107);
 		f.getContentPane().add(stepManageBtn);
 
-		JButton clientManageBtn = new JButton("고객관리");
+		JButton clientManageBtn = new JButton("고객정보");
 		clientManageBtn.addActionListener(new ActionListener() {
 
 			@Override
