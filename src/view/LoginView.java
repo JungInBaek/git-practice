@@ -77,6 +77,7 @@ public class LoginView {
 					ClientMainView mainView = new ClientMainView();
 					mainView.open();
 				}
+				f.dispose();
 			}
 		});
 		loginBtn.setFont(new Font("맑은 고딕", Font.BOLD, 18));
@@ -88,6 +89,7 @@ public class LoginView {
 			public void actionPerformed(ActionEvent e) {
 				JoinView joinView = new JoinView();
 				joinView.open();
+				f.dispose();
 			}
 		});
 		joinBtn.setFont(new Font("맑은 고딕", Font.BOLD, 18));

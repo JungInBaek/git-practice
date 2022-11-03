@@ -3,6 +3,9 @@ package view;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 
@@ -22,6 +25,15 @@ public class ClientMainView {
 		JButton itemSaleBtn = new JButton("상품판매");
 		itemSaleBtn.setFont(new Font("맑은 고딕", Font.BOLD, 18));
 		itemSaleBtn.setBounds(218, 225, 154, 107);
+		itemSaleBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				GoodsSell goods = new GoodsSell();
+				goods.open();
+				
+			}
+		});
 		f.getContentPane().add(itemSaleBtn);
 		f.setVisible(true);
 	}
